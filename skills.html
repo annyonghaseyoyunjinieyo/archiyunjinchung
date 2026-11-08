@@ -79,6 +79,16 @@
     .ladder div:nth-child(3) { height: 60%; }
     .ladder div:nth-child(4) { height: 78%; }
     .ladder .top { height: 100%; background: var(--pink); color: var(--ink); }
+
+    @media (max-width: 760px) {
+      .tools, .certs { grid-template-columns: 1fr; gap: 12px; }
+      .tool { padding: 20px 18px; grid-template-columns: 56px 1fr; gap: 16px; }
+      .tool:hover { transform: none; }
+      .tool .mark { width: 46px; height: 46px; font-size: 15px; }
+      .tool h3 { font-size: 19px; }
+      .cert { padding: 22px 20px 24px; }
+      .cert h3 { font-size: 64px; }
+    }
   </style>
 </head>
 <body>

@@ -84,6 +84,21 @@
     .index h3 { margin: 0; font-family: var(--jp); font-size: 22px; }
     .index p { margin: 4px 0 0; font-family: var(--jp); font-size: 13px; color: #666; }
     .index .go { font-size: 12px; font-weight: 800; letter-spacing: .12em; padding: 8px 14px; border: 1px solid var(--ink); background: var(--pink-soft); }
+
+    @media (max-width: 760px) {
+      /* shelf scrolls sideways; spines are plain links (no hover on phones) */
+      .shelf { height: 360px; padding: 0 8px; gap: 6px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; }
+      .spine { height: calc(var(--h) * .75); flex-basis: calc(var(--w) * .85); scroll-snap-align: start; }
+      .spine:hover { flex-basis: calc(var(--w) * .85); transform: none; }
+      .spine:hover .cover { opacity: 0; }
+      .spine .title { font-size: 15px; }
+      .index a { grid-template-columns: 1fr auto; gap: 10px 14px; padding: 16px 0; }
+      .index a:hover { padding-left: 0; }
+      .index img { grid-column: 1 / -1; width: 100%; height: auto; aspect-ratio: 16 / 9; order: -1; }
+      .index .n { font-size: 22px; grid-column: 1 / -1; }
+      .index h3 { font-size: 19px; }
+      .index .go { align-self: start; }
+    }
   </style>
 </head>
 <body>
@@ -106,7 +121,7 @@
 
   <main class="wrap">
     <div class="shelf" id="shelf"></div>
-    <p class="shelf-note">Hover a spine to open it · click to see the full project.</p>
+    <p class="shelf-note">Hover a spine to preview · click (or tap) to see the full project.</p>
 
     <h2 class="section-title">INDEX <small>作品一覧</small></h2>
     <ol class="index" id="index"></ol>

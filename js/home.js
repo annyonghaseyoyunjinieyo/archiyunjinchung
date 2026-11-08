@@ -593,6 +593,25 @@
 
   let active = null, hideTimer = null, prog = 0;
   caption.classList.add('idle');
+  const noHover = matchMedia('(hover: none)');
+
+  /* Phones: frame the scene around the building (portrait), and keep the caption above the bottom sheet. */
+  const intro = document.querySelector('.intro');
+  function fitView() {
+    if (innerWidth <= 760) {
+      const w = 560, h = Math.max(w * innerHeight / innerWidth, 900);
+      svg.setAttribute('viewBox', `${940 - w / 2} -40 ${w} ${h.toFixed(0)}`);
+      svg.setAttribute('preserveAspectRatio', 'xMidYMin slice');
+      document.documentElement.style.setProperty('--sheet-h', intro.offsetHeight + 22 + 'px');
+    } else {
+      svg.setAttribute('viewBox', '0 0 1600 900');
+      svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+    }
+  }
+  fitView();
+  addEventListener('resize', fitView);
+  addEventListener('load', fitView);
+  if (document.fonts) document.fonts.ready.then(fitView);
 
   function setActive(f) {
     clearTimeout(hideTimer);
@@ -607,7 +626,7 @@
       capNum.textContent = f.num;
       capTitle.textContent = f.title;
       capText.textContent = f.text;
-      capGo.textContent = 'CLICK THE CUBE →';
+      capGo.textContent = noHover.matches ? 'TAP THE CUBE →' : 'CLICK THE CUBE →';
       caption.classList.remove('idle');
     } else {
       capNum.textContent = '—';
@@ -624,10 +643,21 @@
     setTimeout(() => { location.href = href; }, 460);
   }
 
+  // Touch screens have no hover: first tap on a floor pops its cube, a second tap (or tapping the cube) enters.
+  let lastPointer = 'mouse', downActive = null;
+  window.addEventListener('pointerdown', (e) => { lastPointer = e.pointerType; downActive = active; }, true);
+  const isTouch = () => lastPointer !== 'mouse';
+
   FLOORS.forEach((f) => {
     f.g.addEventListener('mouseenter', () => setActive(f));
     f.g.addEventListener('mouseleave', scheduleHide);
-    f.g.addEventListener('click', () => go(f.href));
+    f.g.addEventListener('click', () => {
+      if (isTouch() && downActive !== f) { setActive(f); return; }
+      go(f.href);
+    });
+  });
+  svg.addEventListener('click', (e) => {
+    if (isTouch() && !e.target.closest('.floor, .cube')) setActive(null);
   });
   gCube.addEventListener('mouseenter', () => clearTimeout(hideTimer));
   gCube.addEventListener('mouseleave', scheduleHide);

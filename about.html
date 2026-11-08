@@ -51,6 +51,20 @@
     .contact a:hover { transform: translate(-3px, -3px); background: var(--pink-soft); }
     .contact b { display: block; font-size: 11px; letter-spacing: .14em; color: #888; margin-bottom: 8px; }
     .contact span { font-size: 16px; font-weight: 700; word-break: break-all; }
+
+    @media (max-width: 760px) {
+      .profile { grid-template-columns: 1fr; gap: 28px; }
+      .photo { max-width: 320px; }
+      .lead { font-size: 20px; }
+      .lead br { display: none; }
+      .body { font-size: 14px; line-height: 1.95; }
+      .facts, .langs, .contact { grid-template-columns: 1fr; gap: 12px; }
+      .timeline li { grid-template-columns: 34px 1fr; gap: 6px 14px; padding: 16px 4px; }
+      .timeline li:hover { padding-left: 4px; }
+      .timeline .days { grid-column: 2; justify-self: start; }
+      .timeline h3 { font-size: 17px; }
+      .lang strong { font-size: 24px; }
+    }
   </style>
 </head>
 <body>
