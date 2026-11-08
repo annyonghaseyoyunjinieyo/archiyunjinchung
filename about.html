@@ -52,7 +52,28 @@
     .contact b { display: block; font-size: 11px; letter-spacing: .14em; color: #888; margin-bottom: 8px; }
     .contact span { font-size: 16px; font-weight: 700; word-break: break-all; }
 
+    .club { display: grid; grid-template-columns: 340px 1fr; gap: 56px; align-items: center; }
+    .club-photo { margin: 0; padding: 12px; }
+    .club-photo img { width: 100%; display: block; aspect-ratio: 2 / 3; object-fit: cover; }
+    .club-tag { margin: 0; font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--pink-deep); }
+    .club-text h3 { margin: 6px 0 18px; font-family: var(--jp); font-size: 32px; }
+    .club-stat {
+      display: inline-block;
+      margin: 0 0 22px;
+      padding: 10px 18px;
+      border: 1.5px solid var(--ink);
+      background: var(--pink-soft);
+      font-family: var(--jp);
+      font-size: 18px;
+      font-weight: 700;
+      box-shadow: 6px 6px 0 rgba(43,43,43,.1);
+    }
+    .club-stat b { font-size: 26px; }
+
     @media (max-width: 760px) {
+      .club { grid-template-columns: 1fr; gap: 24px; }
+      .club-photo { max-width: 320px; }
+      .club-text h3 { font-size: 26px; margin-bottom: 14px; }
       .profile { grid-template-columns: 1fr; gap: 28px; }
       .photo { max-width: 320px; }
       .lead { font-size: 20px; }
@@ -139,6 +160,19 @@
         <span class="days">在学中</span>
       </li>
     </ol>
+
+    <h2 class="section-title">CLUB <small>部活動</small></h2>
+    <section class="club">
+      <figure class="club-photo card">
+        <img src="assets/fencing.jpg" alt="フェンシングのユニフォームを着た Yunjin Chung" loading="lazy">
+      </figure>
+      <div class="club-text">
+        <p class="club-tag">FENCING</p>
+        <h3>フェンシング部</h3>
+        <p class="club-stat"><b>全国大会</b> 出場</p>
+        <p class="body">日本大学のフェンシング部に所属し、全国大会の舞台に立ちました。</p>
+      </div>
+    </section>
 
     <h2 class="section-title">LANGUAGES <small>言語</small></h2>
     <div class="langs">
