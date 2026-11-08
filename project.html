@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project — Yunjin Chung</title>
+  <meta name="description" content="Chung Yunjin の建築プロジェクト詳細">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/sub.css">
+  <style>
+    .hero { max-width: 1200px; margin: 0 auto; padding: 56px 48px 0; }
+    .hero-img {
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      object-fit: cover;
+      display: block;
+      border: 1.5px solid var(--ink);
+      box-shadow: 10px 10px 0 rgba(43,43,43,.12);
+    }
+    .title-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: end;
+      margin: 40px 0 0;
+    }
+    .num {
+      font-size: 120px;
+      font-weight: 900;
+      line-height: .8;
+      letter-spacing: -.04em;
+      color: var(--pink-deep);
+    }
+    .title-row small { font-size: 12px; font-weight: 800; letter-spacing: .16em; }
+    .title-row h1 { margin: 6px 0 4px; font-family: var(--jp); font-size: 46px; line-height: 1.2; font-weight: 700; }
+    .title-row p { margin: 0; font-family: var(--jp); font-size: 15px; color: #666; }
+
+    .info { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; margin-top: 48px; }
+    .info .desc { font-family: var(--jp); font-size: 15.5px; line-height: 2.1; margin: 0; }
+    .info ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+    .info li { font-family: var(--jp); font-size: 13.5px; line-height: 1.7; padding: 12px 0 12px 22px; border-bottom: 1px solid var(--line); position: relative; }
+    .info li::before { content: ''; position: absolute; left: 2px; top: 19px; width: 9px; height: 9px; background: var(--pink); border: 1px solid var(--ink); }
+    .info h4 { margin: 0 0 10px; font-size: 12px; letter-spacing: .16em; }
+
+    .pages { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .pages button {
+      padding: 0;
+      border: 1px solid var(--ink);
+      background: #fff;
+      cursor: zoom-in;
+      display: block;
+      position: relative;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .pages button:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 rgba(43,43,43,.15); }
+    .pages img { width: 100%; display: block; aspect-ratio: 841.89 / 595.28; object-fit: cover; }
+    .pages span { position: absolute; left: 10px; bottom: 10px; font-size: 11px; font-weight: 800; padding: 3px 8px; background: #fff; border: 1px solid var(--ink); }
+
+    .pn { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 72px; }
+    .pn a { padding: 22px 24px; text-decoration: none; transition: background .2s; }
+    .pn a:hover { background: var(--pink-soft); }
+    .pn a.next { text-align: right; }
+    .pn b { display: block; font-size: 11px; letter-spacing: .14em; color: #888; margin-bottom: 6px; }
+    .pn span { font-family: var(--jp); font-size: 18px; font-weight: 700; }
+
+    /* lightbox */
+    .lb {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(30,30,30,.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .lb.on { display: flex; }
+    .lb img { max-width: 92vw; max-height: 88vh; background: #fff; box-shadow: 0 10px 40px rgba(0,0,0,.4); }
+    .lb button {
+      position: absolute;
+      background: #fff;
+      border: 1.5px solid var(--ink);
+      width: 52px; height: 52px;
+      font-size: 22px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .lb button:hover { background: var(--pink); }
+    .lb .prev { left: 24px; top: 50%; translate: 0 -50%; }
+    .lb .next { right: 24px; top: 50%; translate: 0 -50%; }
+    .lb .close { right: 24px; top: 24px; }
+    .lb .count { position: absolute; bottom: 22px; left: 50%; translate: -50% 0; color: #fff; font-size: 13px; letter-spacing: .12em; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <nav class="bar">
+    <a class="back" href="projects.html">← ALL PROJECTS</a>
+    <div class="floors">
+      <a class="on" href="projects.html">03F Projects</a>
+      <a href="about.html">02F About</a>
+      <a href="skills.html">01F Skills</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <img class="hero-img" id="hero" alt="">
+    <div class="title-row">
+      <div class="num" id="num"></div>
+      <div>
+        <small id="tag"></small>
+        <h1 id="title"></h1>
+        <p id="sub"></p>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <div class="info">
+      <p class="desc" id="desc"></p>
+      <div><h4>CONTENTS</h4><ul id="contents"></ul></div>
+    </div>
+
+    <h2 class="section-title">SHEETS <small>ポートフォリオのページ — クリックで拡大</small></h2>
+    <div class="pages" id="pages"></div>
+
+    <div class="pn" id="pn"></div>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Yunjin Chung</span>
+    <a href="index.html">↑ BACK TO THE BUILDING</a>
+  </footer>
+
+  <div class="lb" id="lb">
+    <img id="lbImg" alt="">
+    <button class="close" id="lbClose" aria-label="閉じる">×</button>
+    <button class="prev" id="lbPrev" aria-label="前へ">←</button>
+    <button class="next" id="lbNext" aria-label="次へ">→</button>
+    <div class="count" id="lbCount"></div>
+  </div>
+
+  <script src="js/projects-data.js"></script>
+  <script>
+    const id = new URLSearchParams(location.search).get('id') || '01';
+    const i = Math.max(0, PROJECTS.findIndex((p) => p.id === id));
+    const p = PROJECTS[i];
+    const $ = (s) => document.getElementById(s);
+
+    document.title = `${p.title} — Yunjin Chung`;
+    $('hero').src = `assets/projects/covers/${p.id}.jpg`;
+    $('hero').alt = p.title;
+    $('num').textContent = p.id;
+    $('tag').textContent = p.tag;
+    $('title').textContent = p.title;
+    $('sub').textContent = p.sub;
+    $('desc').textContent = p.desc;
+    $('contents').innerHTML = p.contents.map((c) => `<li>${c}</li>`).join('');
+
+    $('pages').innerHTML = p.pages.map((pg, k) =>
+      `<button data-k="${k}"><img src="assets/projects/thumbs/${pg}.jpg" alt="${p.title} — ${k + 1}" loading="lazy"><span>${String(k + 1).padStart(2, '0')}</span></button>`
+    ).join('');
+
+    const prev = PROJECTS[(i - 1 + PROJECTS.length) % PROJECTS.length];
+    const next = PROJECTS[(i + 1) % PROJECTS.length];
+    $('pn').innerHTML = `
+      <a class="card" href="project.html?id=${prev.id}"><b>← PREV ${prev.id}</b><span>${prev.title}</span></a>
+      <a class="card next" href="project.html?id=${next.id}"><b>NEXT ${next.id} →</b><span>${next.title}</span></a>`;
+
+    // lightbox
+    let cur = 0;
+    const show = (k) => {
+      cur = (k + p.pages.length) % p.pages.length;
+      $('lbImg').src = `assets/projects/pages/${p.pages[cur]}.jpg`;
+      $('lbCount').textContent = `${cur + 1} / ${p.pages.length}`;
+      $('lb').classList.add('on');
+    };
+    const close = () => $('lb').classList.remove('on');
+    $('pages').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) show(+b.dataset.k); });
+    $('lbPrev').onclick = () => show(cur - 1);
+    $('lbNext').onclick = () => show(cur + 1);
+    $('lbClose').onclick = close;
+    $('lb').addEventListener('click', (e) => { if (e.target.id === 'lb') close(); });
+    document.addEventListener('keydown', (e) => {
+      if (!$('lb').classList.contains('on')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(cur - 1);
+      if (e.key === 'ArrowRight') show(cur + 1);
+    });
+  </script>
+</body>
+</html>

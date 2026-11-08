@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yunjin Chung — Architecture Portfolio</title>
+  <meta name="description" content="Chung Yunjin（ジョン ユンジン）の建築ポートフォリオ。日本大学 理工学部 建築学科。設計作品・自己紹介・スキル。">
+  <link rel="canonical" href="https://annyonghaseyoyunjinieyo.github.io/archiyunjinchung/">
+  <meta property="og:title" content="Yunjin Chung — Architecture Portfolio">
+  <meta property="og:description" content="日本大学 理工学部 建築学科 Chung Yunjin の建築ポートフォリオ">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://annyonghaseyoyunjinieyo.github.io/archiyunjinchung/">
+  <meta property="og:image" content="https://annyonghaseyoyunjinieyo.github.io/archiyunjinchung/assets/projects/covers/02.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <!-- Isometric construction scene (drawn by js/home.js) -->
+  <svg id="scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-label="工事中の建物のアイソメトリック図">
+    <defs>
+      <!-- wall hatch (vertical lines) -->
+      <pattern id="hatchV" width="3" height="10" patternUnits="userSpaceOnUse">
+        <line x1="0.5" y1="0" x2="0.5" y2="10" stroke="#000" stroke-opacity=".13" stroke-width=".7"/>
+      </pattern>
+      <pattern id="hatchV2" width="4" height="10" patternUnits="userSpaceOnUse">
+        <line x1="0.5" y1="0" x2="0.5" y2="10" stroke="#000" stroke-opacity=".07" stroke-width=".7"/>
+      </pattern>
+      <!-- ground hatch (lines parallel to world x-axis) -->
+      <pattern id="hatchG" width="12" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+        <line x1="0" y1="0" x2="12" y2="0" stroke="#000" stroke-opacity=".07" stroke-width=".8"/>
+      </pattern>
+      <!-- road texture -->
+      <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
+        <circle cx="1.5" cy="1.5" r=".7" fill="#7a2a55" fill-opacity=".16"/>
+        <circle cx="4.5" cy="4.2" r=".5" fill="#fff" fill-opacity=".25"/>
+      </pattern>
+      <!-- crane lattice -->
+      <pattern id="lat" width="7" height="7" patternUnits="userSpaceOnUse">
+        <path d="M0,0 L7,7 M7,0 L0,7" stroke="#2b2b2b" stroke-width=".9"/>
+      </pattern>
+    </defs>
+  </svg>
+
+  <!-- ───────── Overlay UI ───────── -->
+  <header class="topbar">
+    <a class="logo" href="index.html">Y.C<span>／</span>ARCHITECTURE</a>
+    <a class="mail" href="mailto:csyu23124@g.nihon-u.ac.jp">csyu23124@g.nihon-u.ac.jp</a>
+  </header>
+
+  <section class="intro">
+    <p class="eyebrow">PORTFOLIO 2026 — <em>UNDER CONSTRUCTION</em></p>
+    <h1>Yunjin<br>Chung</h1>
+    <p class="sub">日本大学 理工学部 建築学科<br><span>Architecture, Nihon University</span></p>
+
+    <ol class="floor-index">
+      <li data-floor="projects"><b>03F</b><span>Projects</span><small>作品集</small></li>
+      <li data-floor="about"><b>02F</b><span>About</span><small>自己紹介</small></li>
+      <li data-floor="skills"><b>01F</b><span>Skills</span><small>スキル・資格</small></li>
+    </ol>
+    <p class="hint"><i></i>フロアにカーソルを合わせ、<br>出てきたキューブをクリック</p>
+  </section>
+
+  <aside class="caption" id="caption">
+    <p class="cap-num" id="capNum">—</p>
+    <h2 id="capTitle">Select a floor</h2>
+    <p id="capText">建物の各フロアがページになっています。</p>
+    <p class="cap-go" id="capGo"></p>
+  </aside>
+
+  <div class="wipe" id="wipe"></div>
+
+  <script src="js/home.js"></script>
+</body>
+</html>

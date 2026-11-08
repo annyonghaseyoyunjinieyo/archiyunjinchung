@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Yunjin Chung</title>
+  <meta name="description" content="Chung Yunjin の自己紹介。日本大学 理工学部 建築学科、インターン経験（森ビル・大成建設・イトーキ）、フェンシング部、3か国語。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/sub.css">
+  <style>
+    .profile { display: grid; grid-template-columns: 340px 1fr; gap: 56px; align-items: start; }
+    .photo { padding: 12px; }
+    .photo img { width: 100%; display: block; aspect-ratio: 4 / 5; object-fit: cover; }
+    .photo figcaption { display: flex; justify-content: space-between; padding: 12px 2px 2px; font-size: 12px; font-weight: 700; letter-spacing: .08em; }
+    .photo figcaption span { color: #888; font-weight: 500; }
+
+    .lead { font-family: var(--jp); font-size: 26px; font-weight: 700; line-height: 1.6; margin: 0 0 24px; }
+    .lead em { font-style: normal; background: linear-gradient(transparent 60%, var(--pink-soft) 60%); }
+    .body { font-family: var(--jp); font-size: 15px; line-height: 2.05; margin: 0 0 16px; color: #3a3a3a; }
+
+    .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+    .fact { padding: 18px 20px; }
+    .fact b { display: block; font-size: 11px; letter-spacing: .14em; color: var(--pink-deep); margin-bottom: 8px; }
+    .fact p { margin: 0; font-family: var(--jp); font-size: 14px; line-height: 1.6; font-weight: 500; }
+
+    .timeline { list-style: none; margin: 0; padding: 0; }
+    .timeline li {
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 22px 8px;
+      border-bottom: 1px solid var(--line);
+      transition: background .2s, padding .2s;
+    }
+    .timeline li:hover { background: #fff; padding-left: 18px; }
+    .timeline .tag { font-size: 12px; font-weight: 800; letter-spacing: .1em; color: #888; }
+    .timeline h3 { margin: 0; font-family: var(--jp); font-size: 20px; font-weight: 700; }
+    .timeline p { margin: 4px 0 0; font-family: var(--jp); font-size: 13px; color: #666; }
+    .timeline .days { font-size: 13px; font-weight: 800; padding: 6px 12px; border: 1px solid var(--ink); background: var(--pink-soft); white-space: nowrap; }
+
+    .langs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .lang { padding: 26px 24px; display: flex; justify-content: space-between; align-items: baseline; }
+    .lang strong { font-size: 30px; font-weight: 900; }
+    .lang span { font-size: 12px; letter-spacing: .1em; color: #888; }
+
+    .contact { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; }
+    .contact a { padding: 24px; text-decoration: none; display: block; transition: transform .2s, background .2s; }
+    .contact a:hover { transform: translate(-3px, -3px); background: var(--pink-soft); }
+    .contact b { display: block; font-size: 11px; letter-spacing: .14em; color: #888; margin-bottom: 8px; }
+    .contact span { font-size: 16px; font-weight: 700; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <nav class="bar">
+    <a class="back" href="index.html">← BACK TO SITE</a>
+    <div class="floors">
+      <a href="projects.html">03F Projects</a>
+      <a class="on" href="about.html">02F About</a>
+      <a href="skills.html">01F Skills</a>
+    </div>
+  </nav>
+
+  <header class="head">
+    <div class="elevator">02F</div>
+    <div>
+      <h1>About me</h1>
+      <p>自己紹介 — 建築を学び、つくる現場を知る。</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="profile">
+      <figure class="photo card" style="margin:0">
+        <img src="assets/profile.jpg" alt="Yunjin Chung のポートレート">
+        <figcaption>YUNJIN CHUNG <span>Architecture</span></figcaption>
+      </figure>
+
+      <div>
+        <p class="lead">図面の中だけでなく、<br><em>建物が建ち、使われ続けていく現場</em>まで<br>見つめられる建築人を目指しています。</p>
+        <p class="body">
+          日本大学理工学部建築学科で建築を学んでいます。設計課題に取り組む一方で、建物が実際につくられ、運営されていくプロセスに強い関心を持ち、ビルマネジメント・ゼネコンの建築エンジニア・オフィス空間づくりの技術職と、それぞれ異なる立場からのインターンシップに参加してきました。
+        </p>
+        <p class="body">
+          大学ではフェンシング部に所属し、全国大会に出場しました。一瞬の判断が勝敗を分ける競技の中で、状況を冷静に読む力と、結果が出るまで練習を積み重ねる粘り強さを身につけました。
+        </p>
+        <p class="body">
+          日本語・英語・韓国語の3か国語を話せることを活かし、多様なバックグラウンドを持つ人々とチームで協働しながら、人と街をつなぐ建築に携わっていきたいと考えています。
+        </p>
+
+        <div class="facts">
+          <div class="fact card"><b>EDUCATION</b><p>日本大学 理工学部<br>建築学科</p></div>
+          <div class="fact card"><b>CLUB</b><p>フェンシング部<br>全国大会 出場</p></div>
+          <div class="fact card"><b>LANGUAGES</b><p>日本語 / English<br>한국어</p></div>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="section-title">INTERNSHIP <small>インターンシップ</small></h2>
+    <ol class="timeline">
+      <li>
+        <span class="tag">01</span>
+        <div><h3>森ビル株式会社</h3><p>ビルマネジメント</p></div>
+        <span class="days">5 DAYS</span>
+      </li>
+      <li>
+        <span class="tag">02</span>
+        <div><h3>大成建設株式会社</h3><p>建築エンジニア</p></div>
+        <span class="days">2 DAYS</span>
+      </li>
+      <li>
+        <span class="tag">03</span>
+        <div><h3>株式会社イトーキ</h3><p>技術職</p></div>
+        <span class="days">5 DAYS</span>
+      </li>
+    </ol>
+
+    <h2 class="section-title">EDUCATION <small>学歴</small></h2>
+    <ol class="timeline">
+      <li>
+        <span class="tag">NOW</span>
+        <div><h3>日本大学 理工学部 建築学科</h3><p>College of Science and Technology, Nihon University — Department of Architecture</p></div>
+        <span class="days">在学中</span>
+      </li>
+    </ol>
+
+    <h2 class="section-title">LANGUAGES <small>言語</small></h2>
+    <div class="langs">
+      <div class="lang card"><strong>日本語</strong><span>JAPANESE</span></div>
+      <div class="lang card"><strong>English</strong><span>ENGLISH</span></div>
+      <div class="lang card"><strong>한국어</strong><span>KOREAN</span></div>
+    </div>
+
+    <h2 class="section-title">CONTACT <small>連絡先</small></h2>
+    <div class="contact">
+      <a class="card" href="mailto:csyu23124@g.nihon-u.ac.jp"><b>MAIL</b><span>csyu23124@g.nihon-u.ac.jp</span></a>
+      <a class="card" href="https://www.linkedin.com/in/yunjin-chung-062601381/" target="_blank" rel="noopener"><b>LINKEDIN</b><span>Yunjin Chung ↗</span></a>
+      <a class="card" href="https://www.instagram.com/archi_yunjin.chung" target="_blank" rel="noopener"><b>INSTAGRAM</b><span>@archi_yunjin.chung ↗</span></a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Yunjin Chung</span>
+    <a href="index.html">↑ BACK TO THE BUILDING</a>
+  </footer>
+</body>
+</html>

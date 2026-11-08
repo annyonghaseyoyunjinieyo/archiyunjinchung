@@ -1,0 +1,9 @@
+# Only the website itself goes to GitHub
+.DS_Store
+*.png
+!assets/**/*.png
+*.zip
+옛날재료/
+resume/
+upload_to_github/
+Capture*.jpg
